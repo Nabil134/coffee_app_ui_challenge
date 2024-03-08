@@ -1,3 +1,4 @@
+import 'package:coffeeappui/Screens/main_screen/nav_pages/home/delivery_page.dart';
 import 'package:flutter/material.dart';
 
 class OrderPage extends StatefulWidget {
@@ -77,6 +78,7 @@ const SizedBox(width: 180,),
    const SizedBox(height: 10,),
     GestureDetector(
       onTap: (){
+        Navigator.push(context,MaterialPageRoute(builder: (context) =>DeliveryPage()));
       },
       child: Container(height: 62,
         width: 315,
@@ -133,7 +135,7 @@ const SizedBox(width: 180,),
               color: Color(0xffF2F2F2),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Center(child: Text('Deliver',style: TextStyle(
+            child: Center(child: Text('Pick Up',style: TextStyle(
               color: Color(0xff2F2D2C),
               fontSize: 16,
               fontWeight: FontWeight.w600,
@@ -194,24 +196,29 @@ const SizedBox(width: 180,),
          trailing: Row(
            mainAxisSize: MainAxisSize.min,
            children: [
-           Container(
-             height: 28,
-             width: 28,
-             decoration: BoxDecoration(
-               borderRadius: BorderRadius.circular(20),
+             Container(
+               height: 28,
+               width: 28,
+               padding: EdgeInsets.only(bottom: 8),
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(20),
+                 color: Color(0xffFFFFFF),
+               ),
+               child: Icon(Icons.minimize_rounded),
              ),
-          child: Icon(Icons.minimize),
-           ),
+             const SizedBox(width: 5,),
              Text('1',style: TextStyle(
                color: Color(0xff2F2D2C),
                fontSize: 12,
                fontWeight: FontWeight.w600,
              ),),
+             const SizedBox(width: 5,),
              Container(
                height: 28,
                width: 28,
                decoration: BoxDecoration(
                  borderRadius: BorderRadius.circular(20),
+                 color: Color(0xffFFFFFF),
                ),
                child: Icon(Icons.add),
              ),
@@ -225,9 +232,11 @@ const SizedBox(width: 180,),
          Container(
            height: 56,
            width: 315,
+           padding: const EdgeInsets.all(8),
            decoration: BoxDecoration(
-             color: Color(0xffEAEAEA),
+             color: Color(0xffFFFFFF),
              borderRadius: BorderRadius.circular(14),
+             border: Border.all(color: Color(0xffEAEAEA),),
            ),
          child: Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -242,7 +251,75 @@ const SizedBox(width: 180,),
          ],),
          ),
          /*seven portion end here*/
+         const SizedBox(height: 10,),
+         /*eight portion start here*/
+         Text('Payment Summary',style: TextStyle(
+           color: Color(0xff2F2D2C),
+           fontSize: 16,
+           fontWeight: FontWeight.w600,
+         ),),
+         /*eight portion end here*/
+         const SizedBox(height: 10,),
+         /*nine portion start here*/
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+           Text('Price',style: TextStyle(
+             color: Color(0xff2F2D2C),
+             fontSize: 14,
+             fontWeight: FontWeight.w400,
+           ),),
+           Text('\$ 4.53',style: TextStyle(
+             color: Color(0xff2F2D2C),
+             fontSize: 14,
+             fontWeight: FontWeight.w600,
+           ),),
+         ],),
+         /*nine portion end here*/
+         const SizedBox(height: 10,),
+         /*ten portion start here*/
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+           Text('Delivery Fee',style: TextStyle(
+             color: Color(0xff2F2D2C),
+             fontSize: 14,
+             fontWeight: FontWeight.w400,
+           ),),
 
+           Row(children: [
+             Text(' \$ 2.0',
+               style: TextStyle(
+                 decoration: TextDecoration.lineThrough,
+               color: Color(0xff2F2D2C),
+               fontSize: 14,
+               fontWeight: FontWeight.w400,
+             ),),
+             Text(' \$ 1.0',style: TextStyle(
+               color: Color(0xff2F2D2C),
+               fontSize: 14,
+               fontWeight: FontWeight.w400,
+             ),),
+           ],),
+         ],),
+         /*ten portion end here*/
+         const SizedBox(height: 10,),
+         /*last portion start here*/
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             Text('Total Payment',style: TextStyle(
+               color: Color(0xff2F2D2C),
+               fontSize: 14,
+               fontWeight: FontWeight.w400,
+             ),),
+             Text('\$ 5.53',style: TextStyle(
+               color: Color(0xff2F2D2C),
+               fontSize: 14,
+               fontWeight: FontWeight.w600,
+             ),),
+           ],),
+         /*last portion end here*/
      ],),),
    ),
     );
